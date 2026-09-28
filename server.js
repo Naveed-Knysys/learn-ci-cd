@@ -4,8 +4,12 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+function getMessage() {
+  return "Hello from CI/CD!";
+}
+
 app.get("/", (req, res) => {
-  res.send("Hello from CI/CD!");
+  res.send(getMessage());
 });
 
 app.get("/health", (req, res) => {
@@ -14,6 +18,13 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = {
+  app,
+  getMessage
+};
