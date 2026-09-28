@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 function getMessage() {
-  return "Hello from CI/CD on CodeSpaces!";
+  return "Hello from CI/CD! Testing Git Merge";
 }
 
 app.get("/", (req, res) => {
