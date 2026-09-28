@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 function getMessage() {
   return "Hello from CI/CD - v2";
+  return "Hello from CI/CD! Testing Git Merge";
 }
 
 app.get("/", (req, res) => {
